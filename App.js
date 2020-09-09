@@ -8,38 +8,6 @@ export default function App() {
   console.disableYellowBox = true;
   //return 구문 밖에서는 슬래시 두개 방식으로 주석
 
-  const dataDisplay = () => {
-    let tip = data.tip;
-    let cardList = [];
-    for(let i=0; i<tip.length; i++){
-
-      //2로 나눈 나머지가 0이다? 그럼 짝수
-      if(i % 2 == 0){
-        cardList.push(<View style={styles.cardEven}>
-          <Image style={styles.cardImage} source={{uri:tip[i].image}}/>
-          <View style={styles.cardText}>
-            <Text style={styles.cardTitle} numberOfLines={1}>{tip[i].title}</Text>
-            <Text style={styles.cardDesc} numberOfLines={3}>{tip[i].desc}</Text>
-            <Text style={styles.cardDate}>{tip[i].date}</Text>
-          </View>
-        </View>)
-      }else{
-        cardList.push(<View style={styles.cardOdd}>
-          <Image style={styles.cardImage} source={{uri:tip[i].image}}/>
-          <View style={styles.cardText}>
-            <Text style={styles.cardTitle} numberOfLines={1}>{tip[i].title}</Text>
-            <Text style={styles.cardDesc} numberOfLines={3}>{tip[i].desc}</Text>
-            <Text style={styles.cardDate}>{tip[i].date}</Text>
-          </View>
-        </View>)
-      }
-
-
- 
-    }
-    return cardList
-  }
-
   let tip = data.tip;
   let todayWeather = 10 + 17;
   let todayCondition = "흐림"
@@ -61,7 +29,28 @@ export default function App() {
       <View style={styles.cardContainer}>
         {/* 하나의 카드 영역을 나타내는 View */}
         {
-          dataDisplay()
+          tip.map((content,i)=>{
+            if(i % 2 == 0){
+              return (<View style={styles.cardEven} key={i}>
+                <Image style={styles.cardImage} source={{uri:content.image}}/>
+                <View style={styles.cardText}>
+                  <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
+                  <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
+                  <Text style={styles.cardDate}>{content.date}</Text>
+                </View>
+              </View>)
+            }else{
+              return (<View style={styles.cardOdd} key={i}>
+                <Image style={styles.cardImage} source={{uri:content.image}}/>
+                <View style={styles.cardText}>
+                  <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
+                  <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
+                  <Text style={styles.cardDate}>{content.date}</Text>
+                </View>
+              </View>)
+            }
+          })
+            
         }
         
       </View>
