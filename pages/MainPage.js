@@ -9,6 +9,7 @@ export default function MainPage({data}){
     //컴포넌트 안에서 데이터를 관리 할땐 무조건 상태!관리
     //useState 선언할 땐 빈 데이터라도 초기값 넣기!
     const [state, setState] = useState([])
+    const [cateState, setCateState] = useState([])
 
 
     let todayWeather = 10 + 17;
@@ -17,7 +18,14 @@ export default function MainPage({data}){
     useEffect(()=>{
         let tip = data.tip;
         setState(tip)
-    })
+        setCateState(tip)
+    },[])
+
+    const category = (cate) =>{
+        setCateState(state.filter((d)=>{
+            return d.category == cate
+        }))
+    }
 
     
     return (  <ScrollView style={styles.container}>
@@ -25,14 +33,14 @@ export default function MainPage({data}){
         <Text style={styles.weather}>오늘의 날씨: {todayWeather + '°C ' + todayCondition} </Text>
         <Image style={styles.mainImage} source={main}/>
         <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
-          <TouchableOpacity style={styles.middleButton01}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.middleButton02}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.middleButton03}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.middleButton04}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton01} onPress={()=>{category('생활')}}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton02} onPress={()=>{category('재테크')}}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton03} onPress={()=>{category('반려견')}}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton04}><Text style={styles.middleButtonText2}>꿀팁찜</Text></TouchableOpacity>
         </ScrollView>
         <View style={styles.cardContainer}>
           {
-            state.map((content,i)=>{
+            cateState.map((content,i)=>{
               return (<Card key={i} content={content} />)
             })
           }
