@@ -8,22 +8,7 @@ export default function App() {
   console.disableYellowBox = true;
   //return 구문 밖에서는 슬래시 두개 방식으로 주석
 
-  const dataDisplay = () => {
-    let tip = data.tip;
-    let cardList = [];
-    for(let i=0; i<tip.length; i++){
-      cardList.push(<View style={styles.card}>
-        <Image style={styles.cardImage} source={{uri:tip[i].image}}/>
-        <View style={styles.cardText}>
-          <Text style={styles.cardTitle} numberOfLines={1}>{tip[i].title}</Text>
-          <Text style={styles.cardDesc} numberOfLines={3}>{tip[i].desc}</Text>
-          <Text style={styles.cardDate}>{tip[i].date}</Text>
-        </View>
-      </View>)
- 
-    }
-    return cardList
-  }
+  let tip = data.tip;
 
   return (
     /*
@@ -40,7 +25,18 @@ export default function App() {
       </ScrollView>
       <View style={styles.cardContainer}>
         {/* 하나의 카드 영역을 나타내는 View */}
-        {dataDisplay()}
+        {
+          tip.map((content,i)=>{
+            return (<View style={styles.card} key={i}>
+              <Image style={styles.cardImage} source={{uri:content.image}}/>
+              <View style={styles.cardText}>
+                <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
+                <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
+                <Text style={styles.cardDate}>{content.date}</Text>
+              </View>
+            </View>)
+          })
+        }
         
       </View>
    
