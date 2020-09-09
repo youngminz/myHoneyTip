@@ -12,6 +12,7 @@ export default function App() {
     */
     <View style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
+      <Image style={styles.mainImage} source={main}/>
     </View>
   );
 }
@@ -35,4 +36,16 @@ const styles = StyleSheet.create({
     //왼쪽 공간으로 부터 이격
     marginLeft:20
   },
+  mainImage: {
+    //컨텐츠의 넓이 값
+    width:'90%',
+    //컨텐츠의 높이 값
+    height:200,
+    //컨텐츠의 모서리 구부리기
+    borderRadius:10,
+    marginTop:20,
+    //컨텐츠 자체가 앱에서 어떤 곳에 위치시킬지 결정(정렬기능)
+    //각 속성의 값들은 공식문서에 고대로~ 나와 있음
+    alignSelf:"center"
+  }
 });
