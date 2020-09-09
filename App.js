@@ -30,8 +30,14 @@ export default function App() {
         {/* 하나의 카드 영역을 나타내는 View */}
         {
           tip.map((content,i)=>{
-            if(i % 2 == 0){
-              return (<View style={styles.cardEven} key={i}>
+            return i % 2 == 0 ? (<View style={styles.cardEven} key={i}>
+              <Image style={styles.cardImage} source={{uri:content.image}}/>
+              <View style={styles.cardText}>
+                <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
+                <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
+                <Text style={styles.cardDate}>{content.date}</Text>
+              </View>
+            </View>) : (<View style={styles.cardOdd} key={i}>
                 <Image style={styles.cardImage} source={{uri:content.image}}/>
                 <View style={styles.cardText}>
                   <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
@@ -39,16 +45,7 @@ export default function App() {
                   <Text style={styles.cardDate}>{content.date}</Text>
                 </View>
               </View>)
-            }else{
-              return (<View style={styles.cardOdd} key={i}>
-                <Image style={styles.cardImage} source={{uri:content.image}}/>
-                <View style={styles.cardText}>
-                  <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-                  <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
-                  <Text style={styles.cardDate}>{content.date}</Text>
-                </View>
-              </View>)
-            }
+            
           })
             
         }
