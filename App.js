@@ -17,7 +17,7 @@ export default function App() {
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>미용</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton2}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
       </View>
     </View>
   );
@@ -70,6 +70,23 @@ const styles = StyleSheet.create({
   },
   middleButtonText: {
     color:"deeppink",
+    fontWeight:"700",
+    //텍스트의 현재 위치에서의 정렬 
+    textAlign:"center"
+  },
+  middleButton2: {
+    width:100,
+    height:50,
+    padding:15,
+    backgroundColor:"deeppink",
+    borderColor:"deeppink",
+    borderStyle:"solid",
+    borderWidth:2,
+    borderRadius:20,
+    margin:7
+  },
+  middleButtonText2: {
+    color:"#fff",
     fontWeight:"700",
     //텍스트의 현재 위치에서의 정렬 
     textAlign:"center"
