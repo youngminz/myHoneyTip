@@ -8,7 +8,7 @@ export default function App() {
   //return 구문 밖에서는 슬래시 두개 방식으로 주석
   return (
     /*
-      return 구문 안에서는 슬래시 + * 방식으로 주석
+      return 구문 안에서는 {슬래시 + * 방식으로 주석
     */
     <ScrollView style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
@@ -19,6 +19,65 @@ export default function App() {
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton2}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
       </ScrollView>
+      <View style={styles.cardContainer}>
+        {/* 하나의 카드 영역을 나타내는 View */}
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={main}/>
+          <View style={styles.cardText}>
+            <Text>꿀팁 제목</Text>
+            <Text>꿀팁 설명 설명 설명 !</Text>
+            <Text>꿀팁 날짜</Text>
+          </View>
+        </View>
+      </View>
    
     </ScrollView>
   );
@@ -53,6 +112,7 @@ const styles = StyleSheet.create({
   },
   middleContainer:{
     marginTop:20,
+    marginLeft:10,
     height:60
   },
   middleButton: {
@@ -62,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor:"#fff",
     borderColor:"deeppink",
     borderStyle:"solid",
-    borderWidth:2,
+    borderWidth:1.5,
     borderRadius:15,
     margin:7
   },
@@ -77,8 +137,11 @@ const styles = StyleSheet.create({
     height:50,
     padding:15,
     backgroundColor:"deeppink",
+    //테두리 색
     borderColor:"deeppink",
+    //테두리 스타일 : 선은 solid, 점선은 dotted
     borderStyle:"solid",
+    //테두리 두께
     borderWidth:2,
     borderRadius:20,
     margin:7
@@ -89,5 +152,26 @@ const styles = StyleSheet.create({
     //텍스트의 현재 위치에서의 정렬 
     textAlign:"center"
   },
+  cardContainer: {
+    marginTop:10
+  },
+  card:{
+    flex:1,
+    //컨텐츠들을 가로로 나열
+    //세로로 나열은 column <- 디폴트 값임 
+    flexDirection:"row",
+    margin:20
+  },
+  cardImage: {
+    flex:1,
+    width:100,
+    height:100,
+    borderRadius:10,
+  },
+  cardText: {
+    flex:2,
+    marginLeft:10,
+
+  }
 
 });
