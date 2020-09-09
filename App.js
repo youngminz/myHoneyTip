@@ -14,9 +14,9 @@ export default function App() {
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Image style={styles.mainImage} source={main}/>
       <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
-        <TouchableOpacity style={styles.middleButton01}><Text style={styles.middleButtonText}>미용</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton01}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton02}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton03}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton03}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton04}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
       </ScrollView>
       <View style={styles.cardContainer}>
@@ -128,7 +128,11 @@ const styles = StyleSheet.create({
     //컨텐츠들을 가로로 나열
     //세로로 나열은 column <- 디폴트 값임 
     flexDirection:"row",
-    margin:10
+    margin:10,
+    borderBottomWidth:0.5,
+    borderBottomColor:"#eee",
+    paddingBottom:10
+
   },
   cardImage: {
     flex:1,
