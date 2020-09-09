@@ -1,14 +1,14 @@
 import React from "react";
 import main from '../assets/main.png';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
-import data from "../data.json"
 
-
-export default function MainPage(){
+//비구조 할당 방식으로 App으로 부터 건네 받은 딕셔너리에서 tip 키 값만 꺼냅니다.
+export default function MainPage({data}){
 
     let tip = data.tip;
     let todayWeather = 10 + 17;
     let todayCondition = "흐림"
+   
 
     return (  <ScrollView style={styles.container}>
         <Text style={styles.title}>나만의 꿀팁</Text>
