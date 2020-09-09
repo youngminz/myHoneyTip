@@ -18,14 +18,21 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    //전체 화면을 전부 차지하는 레이아웃 설정/선언 방식
+    //전체를 나타날때 보통 1로 표현
+    //또 다른 표현: 전체 화면을 1로 나누면? 그대로 전체화면입니다.
     flex: 1,
+    //앱의 배경 색
     backgroundColor: '#fff',
   },
   title: {
-    //
+    //폰트 사이즈
     fontSize: 20,
+    //폰트 두께
     fontWeight: '700',
+    //위 공간으로 부터 이격
     marginTop:50,
+    //왼쪽 공간으로 부터 이격
     marginLeft:20
   },
 });
