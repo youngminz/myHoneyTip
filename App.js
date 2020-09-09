@@ -16,6 +16,7 @@ export default function App() {
     */
     <ScrollView style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
+      <Text style={styles.weather}>오늘의 날씨: 21 °C</Text>
       <Image style={styles.mainImage} source={main}/>
       <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
         <TouchableOpacity style={styles.middleButton01}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
@@ -58,6 +59,10 @@ const styles = StyleSheet.create({
     marginTop:50,
     //왼쪽 공간으로 부터 이격
     marginLeft:20
+  },
+  weather:{
+    alignSelf:"flex-end",
+    paddingRight:20
   },
   mainImage: {
     //컨텐츠의 넓이 값
