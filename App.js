@@ -10,17 +10,17 @@ export default function App() {
     /*
       return 구문 안에서는 슬래시 + * 방식으로 주석
     */
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Image style={styles.mainImage} source={main}/>
-      <ScrollView style={styles.middleContainer} horizontal>
+      <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>미용</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton2}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
       </ScrollView>
    
-    </View>
+    </ScrollView>
   );
 }
 
