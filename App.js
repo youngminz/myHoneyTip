@@ -30,24 +30,15 @@ export default function App() {
         {/* 하나의 카드 영역을 나타내는 View */}
         {
           tip.map((content,i)=>{
-            return i % 2 == 0 ? (<View style={styles.cardEven} key={i}>
+            return (<View style={styles.card} key={i}>
               <Image style={styles.cardImage} source={{uri:content.image}}/>
               <View style={styles.cardText}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
                 <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
                 <Text style={styles.cardDate}>{content.date}</Text>
               </View>
-            </View>) : (<View style={styles.cardOdd} key={i}>
-                <Image style={styles.cardImage} source={{uri:content.image}}/>
-                <View style={styles.cardText}>
-                  <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-                  <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
-                  <Text style={styles.cardDate}>{content.date}</Text>
-                </View>
-              </View>)
-            
+            </View>)
           })
-            
         }
         
       </View>
@@ -147,17 +138,7 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginLeft:10
   },
-  cardEven:{
-    flex:1,
-    flexDirection:"row",
-    margin:10,
-    backgroundColor:"#FFFED7",
-    borderRadius:20,
-    borderBottomWidth:0.5,
-    borderBottomColor:"#eee",
-    paddingBottom:10
-  },
-  cardOdd:{
+  card:{
     flex:1,
     flexDirection:"row",
     margin:10,
