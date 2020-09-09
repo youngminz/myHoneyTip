@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import main from './assets/main.png';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 
 export default function App() {
   console.disableYellowBox = true;
@@ -13,6 +13,12 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Image style={styles.mainImage} source={main}/>
+      <View style={styles.middleContainer}>
+        <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>미용</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -47,5 +53,25 @@ const styles = StyleSheet.create({
     //컨텐츠 자체가 앱에서 어떤 곳에 위치시킬지 결정(정렬기능)
     //각 속성의 값들은 공식문서에 고대로~ 나와 있음
     alignSelf:"center"
+  },
+  middleContainer:{
+    marginTop:20
+  },
+  middleButton: {
+    width:100,
+    height:50,
+    padding:15,
+    backgroundColor:"#fff",
+    borderColor:"deeppink",
+    borderStyle:"solid",
+    borderWidth:2,
+    borderRadius:20,
+    margin:7
+  },
+  middleButtonText: {
+    color:"deeppink",
+    fontWeight:"700",
+    //텍스트의 현재 위치에서의 정렬 
+    textAlign:"center"
   }
 });
