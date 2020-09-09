@@ -8,6 +8,38 @@ export default function App() {
   console.disableYellowBox = true;
   //return 구문 밖에서는 슬래시 두개 방식으로 주석
 
+  const dataDisplay = () => {
+    let tip = data.tip;
+    let cardList = [];
+    for(let i=0; i<tip.length; i++){
+
+      //2로 나눈 나머지가 0이다? 그럼 짝수
+      if(i % 2 == 0){
+        cardList.push(<View style={styles.cardEven}>
+          <Image style={styles.cardImage} source={{uri:tip[i].image}}/>
+          <View style={styles.cardText}>
+            <Text style={styles.cardTitle} numberOfLines={1}>{tip[i].title}</Text>
+            <Text style={styles.cardDesc} numberOfLines={3}>{tip[i].desc}</Text>
+            <Text style={styles.cardDate}>{tip[i].date}</Text>
+          </View>
+        </View>)
+      }else{
+        cardList.push(<View style={styles.cardOdd}>
+          <Image style={styles.cardImage} source={{uri:tip[i].image}}/>
+          <View style={styles.cardText}>
+            <Text style={styles.cardTitle} numberOfLines={1}>{tip[i].title}</Text>
+            <Text style={styles.cardDesc} numberOfLines={3}>{tip[i].desc}</Text>
+            <Text style={styles.cardDate}>{tip[i].date}</Text>
+          </View>
+        </View>)
+      }
+
+
+ 
+    }
+    return cardList
+  }
+
   let tip = data.tip;
   let todayWeather = 10 + 17;
   let todayCondition = "흐림"
@@ -29,16 +61,7 @@ export default function App() {
       <View style={styles.cardContainer}>
         {/* 하나의 카드 영역을 나타내는 View */}
         {
-          tip.map((content,i)=>{
-            return (<View style={styles.card} key={i}>
-              <Image style={styles.cardImage} source={{uri:content.image}}/>
-              <View style={styles.cardText}>
-                <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-                <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
-                <Text style={styles.cardDate}>{content.date}</Text>
-              </View>
-            </View>)
-          })
+          dataDisplay()
         }
         
       </View>
@@ -138,16 +161,23 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginLeft:10
   },
-  card:{
+  cardEven:{
     flex:1,
-    //컨텐츠들을 가로로 나열
-    //세로로 나열은 column <- 디폴트 값임 
+    flexDirection:"row",
+    margin:10,
+    backgroundColor:"#FFFED7",
+    borderRadius:20,
+    borderBottomWidth:0.5,
+    borderBottomColor:"#eee",
+    paddingBottom:10
+  },
+  cardOdd:{
+    flex:1,
     flexDirection:"row",
     margin:10,
     borderBottomWidth:0.5,
     borderBottomColor:"#eee",
     paddingBottom:10
-
   },
   cardImage: {
     flex:1,
