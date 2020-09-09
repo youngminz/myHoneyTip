@@ -21,62 +21,16 @@ export default function App() {
       </ScrollView>
       <View style={styles.cardContainer}>
         {/* 하나의 카드 영역을 나타내는 View */}
+        
         <View style={styles.card}>
           <Image style={styles.cardImage} source={main}/>
           <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
+            <Text style={styles.cardTitle}>꿀팁 제목</Text>
+            <Text style={styles.cardDesc}>꿀팁 설명 설명 설명 !</Text>
+            <Text style={styles.cardDate}>꿀팁 날짜</Text>
           </View>
         </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={main}/>
-          <View style={styles.cardText}>
-            <Text>꿀팁 제목</Text>
-            <Text>꿀팁 설명 설명 설명 !</Text>
-            <Text>꿀팁 날짜</Text>
-          </View>
-        </View>
+        
       </View>
    
     </ScrollView>
@@ -153,14 +107,15 @@ const styles = StyleSheet.create({
     textAlign:"center"
   },
   cardContainer: {
-    marginTop:10
+    marginTop:10,
+    marginLeft:10
   },
   card:{
     flex:1,
     //컨텐츠들을 가로로 나열
     //세로로 나열은 column <- 디폴트 값임 
     flexDirection:"row",
-    margin:20
+    margin:10
   },
   cardImage: {
     flex:1,
@@ -170,8 +125,10 @@ const styles = StyleSheet.create({
   },
   cardText: {
     flex:2,
+    flexDirection:"column",
     marginLeft:10,
+  },
 
-  }
+
 
 });
