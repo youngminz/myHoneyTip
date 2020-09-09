@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import main from '../assets/main.png';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import Card from '../components/Card'
@@ -6,11 +6,19 @@ import Card from '../components/Card'
 //비구조 할당 방식으로 App으로 부터 건네 받은 딕셔너리에서 tip 키 값만 꺼냅니다.
 export default function MainPage({data}){
 
-    let tip = data.tip;
+    //컴포넌트 안에서 데이터를 관리 할땐 무조건 상태!관리
+    //useState 선언할 땐 빈 데이터라도 초기값 넣기!
+    const [state, setState] = useState([])
+
+
     let todayWeather = 10 + 17;
     let todayCondition = "흐림"
-    
-    console.log(tip)
+
+    useEffect(()=>{
+        let tip = data.tip;
+        setState(tip)
+    })
+
     
     return (  <ScrollView style={styles.container}>
         <Text style={styles.title}>나만의 꿀팁</Text>
@@ -24,7 +32,7 @@ export default function MainPage({data}){
         </ScrollView>
         <View style={styles.cardContainer}>
           {
-            tip.map((content,i)=>{
+            state.map((content,i)=>{
               return (<Card key={i} content={content} />)
             })
           }
