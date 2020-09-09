@@ -13,22 +13,19 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Image style={styles.mainImage} source={main}/>
-      <View style={styles.middleContainer}>
+      <ScrollView style={styles.middleContainer} horizontal>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>미용</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton}><Text style={styles.middleButtonText}>할인</Text></TouchableOpacity>
         <TouchableOpacity style={styles.middleButton2}><Text style={styles.middleButtonText2}>꿀팁 찜</Text></TouchableOpacity>
-      </View>
+      </ScrollView>
+   
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    //전체 화면을 전부 차지하는 레이아웃 설정/선언 방식
-    //전체를 나타날때 보통 1로 표현
-    //또 다른 표현: 전체 화면을 1로 나누면? 그대로 전체화면입니다.
-    flex: 1,
     //앱의 배경 색
     backgroundColor: '#fff',
   },
@@ -55,7 +52,8 @@ const styles = StyleSheet.create({
     alignSelf:"center"
   },
   middleContainer:{
-    marginTop:20
+    marginTop:20,
+    height:60
   },
   middleButton: {
     width:100,
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     borderColor:"deeppink",
     borderStyle:"solid",
     borderWidth:2,
-    borderRadius:20,
+    borderRadius:15,
     margin:7
   },
   middleButtonText: {
@@ -90,5 +88,6 @@ const styles = StyleSheet.create({
     fontWeight:"700",
     //텍스트의 현재 위치에서의 정렬 
     textAlign:"center"
-  }
+  },
+
 });
