@@ -1,38 +1,45 @@
 import React, {useState,useEffect} from "react";
 import main from '../assets/main.png';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
-import Card from '../components/Card'
+import Card from '../components/Card';
+import Loading from '../components/Loading';
+import data from "../data.json";
 
 //비구조 할당 방식으로 App으로 부터 건네 받은 딕셔너리에서 tip 키 값만 꺼냅니다.
-export default function MainPage({data}){
+export default function MainPage(){
 
     //컴포넌트 안에서 데이터를 관리 할땐 무조건 상태!관리
     //useState 선언할 땐 빈 데이터라도 초기값 넣기!
+    const [state, setState] = useState([])
     const [cateState, setCateState] = useState([])
+    const [ready, setReady] = useState(false)
 
 
     let todayWeather = 10 + 17;
     let todayCondition = "흐림"
 
     useEffect(()=>{
-        let tip = data.tip;
-        setCateState(tip)
+        setTimeout(()=>{
+            let tip = data.tip;
+            setState(tip)
+            setCateState(tip)
+            setReady(true)
+        },2000)
+
     },[])
 
     const category = (cate) =>{
-        let tip = data.tip
         if(cate == "전체보기"){
-            setCateState(tip)
+            setCateState(state)
         }else{
-            setCateState(tip.filter((d)=>{
+            setCateState(state.filter((d)=>{
                 return d.category == cate
             }))
         }
-    
     }
 
     
-    return (  <ScrollView style={styles.container}>
+    return ready ? ( <ScrollView style={styles.container}>
         <Text style={styles.title}>나만의 꿀팁</Text>
         <Text style={styles.weather}>오늘의 날씨: {todayWeather + '°C ' + todayCondition} </Text>
         <Image style={styles.mainImage} source={main}/>
@@ -51,7 +58,7 @@ export default function MainPage({data}){
           }
           
         </View>
-      </ScrollView>)
+      </ScrollView>) : <Loading/> 
 }
 
 
