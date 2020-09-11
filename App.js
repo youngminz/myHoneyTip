@@ -9,7 +9,7 @@ export default function App() {
 
   return ( 
     <>
-      <StatusBar style="black" />
+      <StatusBar style="black"/>
       <MainPage/> 
     </>);
 }
