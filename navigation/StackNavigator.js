@@ -25,6 +25,7 @@ const StackNavigator = () =>{
                     shadowColor: "white",
                     height:100
                 },
+                //헤더의 텍스트를 왼쪾에 둘지 가운데에 둘지를 결정
                 headerTitleAlign:'left',
                 headerTintColor: "#000",
                 headerBackTitleVisible: false
