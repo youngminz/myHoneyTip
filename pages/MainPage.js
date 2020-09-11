@@ -5,8 +5,8 @@ import Card from '../components/Card';
 import Loading from '../components/Loading';
 import data from "../data.json";
 
-//비구조 할당 방식으로 App으로 부터 건네 받은 딕셔너리에서 tip 키 값만 꺼냅니다.
-export default function MainPage(){
+//Stack.screen에 연결된 페이지(컴포넌트)들은 다음과 같이 navigation,route를 속성으로 넘겨받아 사용할 수 있습니다. 
+export default function MainPage({navigation,route}){
 
     //컴포넌트 안에서 데이터를 관리 할땐 무조건 상태!관리
     //useState 선언할 땐 빈 데이터라도 초기값 넣기!
@@ -19,6 +19,10 @@ export default function MainPage(){
     let todayCondition = "흐림"
 
     useEffect(()=>{
+      //헤더의 타이틀 변경
+        navigation.setOptions({
+          title:'나만의 꿀팁'
+      })
         setTimeout(()=>{
             let tip = data.tip;
             setState(tip)
@@ -53,7 +57,8 @@ export default function MainPage(){
         <View style={styles.cardContainer}>
           {
             cateState.map((content,i)=>{
-              return (<Card key={i} content={content} />)
+              //navigation을 Card 컴포넌트로 속성값으로 전달해줘야, Card에서 받아서 사용가능!
+              return (<Card key={i} content={content} navigation={navigation}/>)
             })
           }
           
