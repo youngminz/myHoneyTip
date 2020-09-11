@@ -20,19 +20,20 @@ const StackNavigator = () =>{
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: "black",
-                    borderBottomColor: "black",
-                    shadowColor: "black",
+                    backgroundColor: "white",
+                    borderBottomColor: "white",
+                    shadowColor: "white",
                     height:100
                 },
-                headerTintColor: "#FFFFFF",
+                headerTitleAlign:'left',
+                headerTintColor: "#000",
                 headerBackTitleVisible: false
             }}
             
         >
 
             {/* 컴포넌트를 페이지로 만들어주는 엘리먼트에 끼워 넣습니다. 이 자체로 이제 페이지 기능을 합니다*/}
-            <Stack.Screen name="MainPage" component={MainPage}/>
+            <Stack.Screen name="나만의 꿀팁" component={MainPage}/>
             <Stack.Screen name="DetailPage" component={DetailPage}/>
         </Stack.Navigator>
     )
