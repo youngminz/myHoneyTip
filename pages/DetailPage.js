@@ -32,7 +32,15 @@ export default function DetailPage({navigation,route}) {
         });
     },[])
 
-    const popup = () => {
+    const like = () => {
+        //상세 페이지 상태 값엔, 지금 보고 있는 꿀팁 데이터가 담겨 있으므로
+        //tip 상태에서 필요한 데이터를 꺼내 저장할 준비를 합니다.
+        let newLike = {
+            idx:tip.idx,
+            title:tip.title,
+            image:tip.image,
+            desc:tip.desc
+        }
         Alert.alert("팝업!!")
     }
 
@@ -55,7 +63,7 @@ export default function DetailPage({navigation,route}) {
                 <Text style={styles.title}>{tip.title}</Text>
                 <Text style={styles.desc}>{tip.desc}</Text>
                 <View style={styles.buttonGroup}>
-                    <TouchableOpacity style={styles.button} onPress={()=>popup()}><Text style={styles.buttonText}>팁 찜하기</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={()=>like()}><Text style={styles.buttonText}>팁 찜하기</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>share()}><Text style={styles.buttonText}>팁 공유하기</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>link()}><Text style={styles.buttonText}>외부 링크</Text></TouchableOpacity>
                 </View>
